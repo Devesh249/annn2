@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Ishu ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', serif;
+    background:#09070b;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,70,120,.13), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(160,50,255,.12), transparent 30%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* Floating hearts */
+.heart{
+    position:fixed;
+    bottom:-30px;
+    color:#ff6b91;
+    font-size:20px;
+    animation:floatUp linear forwards;
+    opacity:.7;
+    z-index:0;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:.8;
+    }
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    position:relative;
+}
+
+.hero-content{
+    animation:fadeIn 2s ease;
+}
+
+.small{
+    color:#ff8eaa;
+    letter-spacing:5px;
+    font-size:13px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(55px,12vw,130px);
+    font-weight:normal;
+    font-style:italic;
+    background:linear-gradient(90deg,#ffb3c6,#fff,#ff7fa2);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:15px;
+}
+
+.hero h2{
+    font-size:clamp(20px,4vw,35px);
+    font-weight:normal;
+    color:#eee;
+}
+
+.hero p{
+    margin-top:25px;
+    color:#aaa;
+    font-family:Arial,sans-serif;
+}
+
+.scroll{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#888;
+    font-size:12px;
+    letter-spacing:3px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translate(-50%,10px);}
+}
+
+/* Sections */
+section{
+    min-height:100vh;
+    padding:100px 8%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.section-label{
+    color:#ff7f9f;
+    letter-spacing:4px;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+section h2{
+    font-size:clamp(35px,6vw,65px);
+    font-weight:normal;
+    margin-bottom:30px;
+}
+
+/* Counter */
+.counter{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.time-box{
+    width:110px;
+    height:110px;
+    border:1px solid rgba(255,130,160,.3);
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(10px);
+}
+
+.time-box strong{
+    font-size:32px;
+    color:#ff9db7;
+}
+
+.time-box span{
+    font-family:Arial,sans-serif;
+    color:#888;
+    font-size:11px;
+    margin-top:5px;
+}
+
+/* Letter */
+.letter{
+    max-width:750px;
+    background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+    border:1px solid rgba(255,150,180,.18);
+    padding:50px;
+    border-radius:25px;
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
+    line-height:1.9;
+    color:#ddd;
+    font-size:18px;
+    text-align:left;
+}
+
+.letter .signature{
+    margin-top:30px;
+    text-align:right;
+    color:#ff91ad;
+    font-style:italic;
+    font-size:24px;
+}
+
+/* Memories */
+.memories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    max-width:1000px;
+    width:100%;
+    gap:20px;
+}
+
+.memory{
+    min-height:260px;
+    padding:30px;
+    border-radius:20px;
+    background:linear-gradient(145deg,#181219,#100c11);
+    border:1px solid rgba(255,255,255,.08);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    text-align:left;
+    transition:.4s;
+}
+
+.memory:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,120,150,.4);
+}
+
+.memory span{
+    color:#ff809e;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.memory h3{
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.memory p{
+    color:#999;
+    font-family:Arial,sans-serif;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* Reasons */
+.reasons{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+    max-width:900px;
+    width:100%;
+}
+
+.reason{
+    padding:30px 20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.04);
+    transition:.4s;
+}
+
+.reason:hover{
+    transform:scale(1.04);
+    background:rgba(255,100,140,.08);
+}
+
+.reason .emoji{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.reason p{
+    color:#ccc;
+    line-height:1.5;
+}
+
+/* Final */
+.final{
+    background:
+        radial-gradient(circle,rgba(255,50,100,.15),transparent 50%);
+}
+
+.final h2{
+    font-size:clamp(45px,8vw,90px);
+}
+
+.final p{
+    max-width:650px;
+    color:#aaa;
+    line-height:1.8;
+    font-family:Arial,sans-serif;
+}
+
+.love-button{
+    margin-top:40px;
+    padding:16px 35px;
+    border:1px solid #ff7597;
+    background:transparent;
+    color:#ff91aa;
+    border-radius:50px;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.love-button:hover{
+    background:#ff7597;
+    color:white;
+    box-shadow:0 0 40px rgba(255,90,130,.4);
+}
+
+/* Surprise */
+#surprise{
+    display:none;
+    margin-top:30px;
+    font-size:28px;
+    color:#ff9db7;
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* Music button */
+.music{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(255,140,170,.5);
+    background:rgba(20,10,15,.7);
+    color:#ff91ad;
+    cursor:pointer;
+    z-index:10;
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:80px 20px;
+    }
+
+    .letter{
+        padding:30px 25px;
+        font-size:16px;
+    }
+
+    .time-box{
+        width:75px;
+        height:85px;
+    }
+
+    .time-box strong{
+        font-size:24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<button class="music" onclick="toggleMusic()">♫</button>
+
+<audio id="music" loop>
+    <!-- Put your song file here -->
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- HERO -->
+<div class="hero">
+
+    <div class="hero-content">
+
+        <div class="small">
+            02 • 10 • 2026
+        </div>
+
+        <h1>Ishu</h1>
+
+        <h2>Two years. One beautiful story. ❤️</h2>
+
+        <p>
+            This little corner of the internet belongs to you.
+        </p>
+
+    </div>
+
+    <div class="scroll">
+        SCROLL DOWN ↓
+    </div>
+
+</div>
+
+
+<!-- COUNTER -->
+<section>
+
+    <div class="section-label">
+        OUR TIME
+    </div>
+
+    <h2>And somehow...</h2>
+
+    <p style="color:#999;max-width:600px;line-height:1.7;">
+        Two years have passed since our story began.
+        But honestly, it still feels like there are a thousand more
+        moments I want to experience with you.
+    </p>
+
+    <div class="counter">
+
+        <div class="time-box">
+            <strong id="days">00</strong>
+            <span>DAYS</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="hours">00</strong>
+            <span>HOURS</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="minutes">00</strong>
+            <span>MINUTES</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="seconds">00</strong>
+            <span>SECONDS</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LETTER -->
+<section>
+
+    <div class="section-label">
+        A LETTER FOR YOU
+    </div>
+
+    <h2>Dear Ishu, ❤️</h2>
+
+    <div class="letter">
+
+        <p>
+            I don't think I can fit everything I feel for you
+            into a website, a letter, or even a thousand words.
+            But I still wanted to try.
+        </p>
+
+        <br>
+
+        <p>
+            Two years ago, we started something that has become
+            one of the most beautiful parts of my life.
+            Since then, you've given me memories, smiles,
+            arguments, laughs, random conversations,
+            and countless moments that I never want to forget.
+        </p>
+
+        <br>
+
+        <p>
+            I love the way you can make an ordinary day feel
+            special just by being there. I love the little things
+            about you that you probably don't even realize I notice.
+        </p>
+
+        <br>
+
+        <p>
+            We've had perfect days and we've had difficult ones.
+            But through all of them, somehow, it has always been
+            <b>you and me.</b>
+        </p>
+
+        <br>
+
+        <p>
+            So on our second anniversary, I don't just want to say
+            "I love you."
+        </p>
+
+        <p>
+            I want to say thank you.
+        </p>
+
+        <p>
+            Thank you for being a part of my life.
+            Thank you for the memories.
+            Thank you for choosing me.
+        </p>
+
+        <br>
+
+        <p>
+            And if I could go back to the beginning and live
+            these two years all over again...
+        </p>
+
+        <p>
+            <b>
+            I would still choose you.
+            Every single time.
+            ❤️
+            </b>
+        </p>
+
+        <div class="signature">
+            Forever yours,<br>
+            ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MEMORIES -->
+<section>
+
+    <div class="section-label">
+        OUR STORY
+    </div>
+
+    <h2>Little moments. Big memories.</h2>
+
+    <div class="memories">
+
+        <div class="memory">
+            <span>🌙</span>
+            <h3>The Beginning</h3>
+            <p>
+                The moment our story started...
+                and neither of us knew how beautiful it would become.
+            </p>
+        </div>
+
+        <div class="memory">
+            <span>😂</span>
+            <h3>The Crazy Moments</h3>
+            <p>
+                All those stupid jokes, random conversations
+                and moments where we couldn't stop laughing.
+            </p>
+        </div>
+
+        <div class="memory">
+            <span>🥹</span>
+            <h3>The Difficult Days</h3>
+            <p>
+                Not every chapter was perfect.
+                But we stayed, learned and grew together.
+            </p>
+        </div>
+
+        <div class="memory">
+            <span>❤️</span>
+            <h3>Us</h3>
+            <p>
+                Two people, countless memories,
+                and a story that is still being written.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REASONS -->
+<section>
+
+    <div class="section-label">
+        JUST BECAUSE
+    </div>
+
+    <h2>Some reasons I love you</h2>
+
+    <div class="reasons">
+
+        <div class="reason">
+            <div class="emoji">😊</div>
+            <p>Your smile can change my entire mood.</p>
+        </div>
+
+        <div class="reason">
+            <div class="emoji">🫶</div>
+            <p>You make me feel understood and cared for.</p>
+        </div>
+
+        <div class="reason">
+            <div class="emoji">😂</div>
+            <p>You somehow make even the most boring moments fun.</p>
+        </div>
+
+        <div class="reason">
+            <div class="emoji">❤️</div>
+            <p>You are simply you — and that's my favourite thing.</p>
+        </div>
+
+        <div class="reason">
+            <div class="emoji">🌎</div>
+            <p>Life feels a little better when you're beside me.</p>
+        </div>
+
+        <div class="reason">
+            <div class="emoji">♾️</div>
+            <p>Because two years still don't feel like enough.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+<section class="final">
+
+    <div class="section-label">
+        ONE LAST THING
+    </div>
+
+    <h2>I choose you.</h2>
+
+    <p>
+        Yesterday. Today. Tomorrow.
+        And in every version of the future where I get a choice,
+        I hope your hand is still the one I'm holding.
+    </p>
+
+    <button class="love-button" onclick="showSurprise()">
+        Open your surprise ❤️
+    </button>
+
+    <div id="surprise">
+        Happy 2nd Anniversary, Ishu. ❤️<br><br>
+
+        <span style="font-size:18px;color:#aaa;">
+            Here's to us...
+            and to all the chapters we haven't written yet.
+        </span>
+    </div>
+
+</section>
+
+
+<script>
+
+/* CHANGE THIS DATE IF NEEDED */
+const startDate = new Date("2024-10-02T00:00:00");
+
+function updateCounter(){
+
+    const now = new Date();
+
+    let difference = now - startDate;
+
+    const days = Math.floor(difference / (1000*60*60*24));
+
+    const hours = Math.floor(
+        (difference / (1000*60*60)) % 24
+    );
+
+    const minutes = Math.floor(
+        (difference / (1000*60)) % 60
+    );
+
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+}
+
+setInterval(updateCounter,1000);
+updateCounter();
+
+
+/* MUSIC */
+
+const music = document.getElementById("music");
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.play();
+    }
+    else{
+        music.pause();
+    }
+
+}
+
+
+/* SURPRISE */
+
+function showSurprise(){
+
+    document.getElementById("surprise").style.display = "block";
+
+    for(let i=0;i<30;i++){
+
+        setTimeout(()=>{
+            createHeart();
+        },i*100);
+
+    }
+
+}
+
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        ["❤️","💕","💗","💖","💘"][
+            Math.floor(Math.random()*5)
+        ];
+
+    heart.style.left =
+        Math.random()*100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random()*5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+}
+
+setInterval(createHeart,1000);
+
+</script>
+
+</body>
+</html>
